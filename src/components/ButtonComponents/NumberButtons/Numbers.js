@@ -10,11 +10,7 @@ const Numbers = props => {
     <div className='numbers-buttons'>
       {numbers.map(number => {
         return (
-          <NumberButton
-            clickHandler={props.clickHandler}
-            display={props.display}
-            glyph={number}
-          />
+          <NumberButton clickHandler={props.clickHandler} glyph={number} />
         );
       })}
     </div>

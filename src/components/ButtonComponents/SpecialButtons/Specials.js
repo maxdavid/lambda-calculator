@@ -10,11 +10,7 @@ const Specials = props => {
     <div className='specials-buttons'>
       {specials.map(special => {
         return (
-          <SpecialButton
-            display={props.display}
-            clickHandler={props.clickHandler}
-            glyph={special}
-          />
+          <SpecialButton clickHandler={props.clickHandler} glyph={special} />
         );
       })}
     </div>

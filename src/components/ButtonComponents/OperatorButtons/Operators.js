@@ -10,11 +10,7 @@ const Operators = props => {
     <div className='operators-buttons'>
       {operators.map(operator => {
         return (
-          <OperatorButton
-            clickHandler={props.clickHandler}
-            display={props.display}
-            glyph={operator}
-          />
+          <OperatorButton clickHandler={props.clickHandler} glyph={operator} />
         );
       })}
     </div>

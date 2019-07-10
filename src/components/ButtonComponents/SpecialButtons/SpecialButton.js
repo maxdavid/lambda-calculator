@@ -6,16 +6,9 @@ const SpecialButton = props => {
     <div
       className='calc-button'
       style={{ backgroundColor: bgcolor }}
-      onClick={
-        props.glyph === 'C'
-          ? () => props.clickHandler('0')
-          : () =>
-              props.clickHandler(
-                (props.glyph + props.display).replace(/^[0|\D]*/, '')
-              )
-      }
+      onClick={() => props.clickHandler(props.glyph)}
     >
-      {props.glyph}
+      {props.glyph.char}
     </div>
   );
 };

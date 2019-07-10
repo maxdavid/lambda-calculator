@@ -7,13 +7,9 @@ const NumberButton = props => {
     <div
       className='calc-button'
       style={{ backgroundColor: bgcolor }}
-      onClick={() =>
-        props.clickHandler(
-          (props.display + props.glyph).replace(/^[0|\D]*/, '')
-        )
-      }
+      onClick={() => props.clickHandler(props.glyph)}
     >
-      {props.glyph}
+      {props.glyph.char}
     </div>
   );
 };

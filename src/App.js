@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
@@ -13,6 +13,36 @@ function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
   const [display, setDisplay] = useState('0');
+  const [expr, setExpr] = useState([]);
+  const [evaluated, setEvaluated] = useState(false);
+
+  const buttonHandler = input => {
+    if (evaluated) setEvaluated(false);
+    switch (input.type) {
+      case 'number':
+        setExpr([...expr, input.value]);
+        setDisplay(
+          ((evaluated ? '' : display) + input.char).replace(/^[0|\D]*/, '')
+        );
+        break;
+      case 'operator':
+        if (input.value === '=') {
+          setDisplay(eval(expr.join('')));
+          setExpr([]);
+        } else {
+          setExpr([...expr, input.value]);
+        }
+        setEvaluated(true);
+        break;
+      case 'special':
+        switch (input.value) {
+          case 'C':
+            setDisplay('0');
+            break;
+        }
+        break;
+    }
+  };
 
   return (
     <div className='container'>
@@ -20,11 +50,11 @@ function App() {
       <Display display={display} />
       <div className='buttons'>
         <div className='left-buttons'>
-          <Specials display={display} clickHandler={setDisplay} />
-          <Numbers display={display} clickHandler={setDisplay} />
+          <Specials clickHandler={buttonHandler} />
+          <Numbers clickHandler={buttonHandler} />
         </div>
         <div className='right-buttons'>
-          <Operators display={display} clickHandler={setDisplay} />
+          <Operators clickHandler={buttonHandler} />
         </div>
       </div>
     </div>

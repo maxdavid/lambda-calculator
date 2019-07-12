@@ -1,9 +1,16 @@
-import React from "react";
+import React from 'react';
 
-const OperatorButton = () => {
+const OperatorButton = props => {
+  const bgcolor = '#007291';
   return (
-    <>
-      {/* Display a button element rendering the data being passed down from the parent container on props */}
-    </>
+    <div
+      className='calc-button'
+      style={{ backgroundColor: bgcolor }}
+      onClick={() => props.clickHandler(props.glyph)}
+    >
+      {props.glyph.char}
+    </div>
   );
 };
+
+export default OperatorButton;

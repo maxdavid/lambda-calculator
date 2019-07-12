@@ -1,0 +1,36 @@
+@import './components/ButtonComponents/ButtonComponents.scss';
+@import './components/DisplayComponents/DisplayComponents.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 5px auto;
+  width: 600px;
+  height: 900px;
+  background-color: #af1e39;
+  border-radius: 30px;
+  padding: 40px;
+
+  .logo-container {
+    width: 100%;
+    padding-bottom: 40px;
+  }
+
+  .buttons {
+    padding-top: 30px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+
+    .specials-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .numbers-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}

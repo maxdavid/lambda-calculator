@@ -1,9 +1,17 @@
-import React from "react";
+import React from 'react';
+// import '../ButtonComponents.scss';
 
-const NumberButton = () => {
+const NumberButton = props => {
+  const bgcolor = '#094377';
   return (
-    <>
-      {/* Display a button element rendering the data being passed down from the parent container on props */}
-    </>
+    <div
+      className='calc-button'
+      style={{ backgroundColor: bgcolor }}
+      onClick={() => props.clickHandler(props.glyph)}
+    >
+      {props.glyph.char}
+    </div>
   );
 };
+
+export default NumberButton;
